@@ -4,10 +4,15 @@ public class Member {
     String name;
     String role;
 
-    String getName() {
+    Member(String name, String role) {
+        this.name = name;
+        this.role = role;
+    }
 
+    String getName() {
+        return this.name;
     }
     String getRole() {
-
+        return this.role;
     }
 }
