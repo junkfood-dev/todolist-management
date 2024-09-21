@@ -48,7 +48,7 @@ public class Management {
     }
 
     // 개인 일정 확인
-    void printTodo(Todo owner) {
+    void printTodo(String owner) {
         boolean find = false;
         for (Todo todo : todoList) {
             if (todo.getOwner().equals(owner)) {
@@ -63,7 +63,7 @@ public class Management {
         }
     }
 
-    void removeTodo(Todo title) {
+    void removeTodo(String title) {
         boolean find = false;
         for (Todo todo : todoList) {
             if (todo.getTitle().equals(title)) {
