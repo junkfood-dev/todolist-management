@@ -8,7 +8,6 @@ public class Member {
         this.name = name;
         this.role = role;
     }
-
     String getName() {
         return this.name;
     }

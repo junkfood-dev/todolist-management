@@ -6,11 +6,12 @@ public class Todo {
     String owner;
     boolean isComplete = false;
 
-    public Todo(String title, String date, String owner){
+    Todo(String title, String date, String owner) {
         this.title = title;
         this.date = date;
         this.owner = owner;
     }
+
     void setIsComplete(boolean isComplete) {
         this.isComplete = isComplete;
     }
