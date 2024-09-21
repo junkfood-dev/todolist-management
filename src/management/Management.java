@@ -6,11 +6,15 @@ public class Management {
     ArrayList<Member> family;
     ArrayList<Todo> todoList;
 
+    Management() {
+        todoList = new ArrayList<>();
+    }
+
     void addMember() {
 
     }
-    void addTodo() {
-
+    void addTodo(Todo todo) {
+        this.todoList.add(todo);
     }
     void markTodoComplete() {
 
