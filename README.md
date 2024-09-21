@@ -12,3 +12,4 @@
   - Management클래스
     - addMember (리스트에 멤버추가)
     - printFamily (멤버리스트 확인)
+  - main메소드 Scanner찍기
