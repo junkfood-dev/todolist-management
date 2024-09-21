@@ -8,14 +8,17 @@ public class Management {
 
     Management() {
         todoList = new ArrayList<>();
+        family = new ArrayList<>();
     }
 
-    void addMember() {
-
+    void addMember(Member member) {
+        this.family.add(member);
     }
+
     void addTodo(Todo todo) {
         this.todoList.add(todo);
     }
+
     void markTodoComplete(String title) {
         boolean find = false;
         for (Todo todo : todoList) {
@@ -34,6 +37,7 @@ public class Management {
             System.out.println("존재하지 않는 일정입니다.");
         }
     }
+
     // 모든 일정 확인
     void printTodoList() {
         for (Todo todo : todoList) {
@@ -42,6 +46,7 @@ public class Management {
             System.out.println(todo.getIsComplete());
         }
     }
+
     // 개인 일정 확인
     void printTodo(Todo owner) {
         boolean find = false;
@@ -57,6 +62,7 @@ public class Management {
             System.out.println("존재 하지 않는 구성원 입니다.");
         }
     }
+
     void removeTodo(Todo title) {
         boolean find = false;
         for (Todo todo : todoList) {
@@ -70,7 +76,14 @@ public class Management {
             System.out.println("존재 하지 않는 " + title + "입니다.");
         }
     }
-    void printFamily() {
 
+    void printFamily() {
+        if (!family.isEmpty()) {
+            for (Member member : family) {
+                System.out.println("이름 : " + member.getName() + " 역할 : " + member.getRole());
+            }
+        } else {
+            System.out.println("추가된 가족 구성원이 없습니다.");
+        }
     }
 }
