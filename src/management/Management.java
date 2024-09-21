@@ -11,8 +11,8 @@ public class Management {
         family = new ArrayList<>();
     }
 
-    void addMember() {
-
+    void addMember(Member member) {
+        this.family.add(member);
     }
 
     void addTodo(Todo todo) {
@@ -87,4 +87,3 @@ public class Management {
         }
     }
 }
-
