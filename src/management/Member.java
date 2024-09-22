@@ -3,6 +3,7 @@ package management;
 public class Member {
     String name;
     String role;
+    boolean isFlag= false;
 
     Member(String name, String role) {
         this.name = name;
@@ -13,5 +14,11 @@ public class Member {
     }
     String getRole() {
         return this.role;
+    }
+    boolean getIsFlag() {
+        return isFlag;
+    }
+    void setIsFlag(boolean isFlag) {
+        this.isFlag = isFlag;
     }
 }
