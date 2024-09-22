@@ -1,6 +1,7 @@
 package management;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
 public class Management {
     ArrayList<Member> family;
@@ -65,11 +66,13 @@ public class Management {
 
     void removeTodo(String title) {
         boolean find = false;
+
         for (Todo todo : todoList) {
             if (todo.getTitle().equals(title)) {
                 todoList.remove(todo);
-                System.out.println("할일 " + todo + "를(을) list에서 삭제했습니다.");
+                System.out.println("할일 " + title + "를(을) list에서 삭제했습니다.");
                 find = true;
+                break;
             }
         }
         if (!find) {

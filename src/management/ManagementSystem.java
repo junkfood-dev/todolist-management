@@ -11,7 +11,7 @@ public class ManagementSystem {
 
         while (true) {
             System.out.println("1. 가족 구성원 추가");
-            System.out.println("1. 가족 구성원 조회");
+            System.out.println("2. 가족 구성원 조회");
             System.out.println("3. 일정 추가");
             System.out.println("4. 일정 조회");
             System.out.println("5. 일정 완료");
@@ -61,12 +61,17 @@ public class ManagementSystem {
                     int choice2 = sc.nextInt();
                     switch (choice2) {
                         case 1:
-                            management.printTodoList();  // 전체일정 없을시 없다고 출력
+
+                            if (management.todoList.isEmpty()) {
+                                System.out.println("등록된 일정이 없습니다.");
+                            } else {
+                                management.printTodoList();
+                            }
                             break;
                         case 2:
                             System.out.println("일정 조회할 사람을 입력");
                             owner = sc.next();
-                            management.printTodo(owner);
+                            management.printTodo(owner); // owner?
                     }
                     break;
 
@@ -80,9 +85,10 @@ public class ManagementSystem {
                     System.out.println("지울거 이름");
                     String removeTitle = sc.next();
                     management.removeTodo(removeTitle);
-                    System.out.println(removeTitle + "이 삭제됐습니다.");
-                    break;   // 일정 이름 틀렸을 때
+                    break;
+
                 case 7:
+             
                     System.out.println("프로그램 종료");
                     System.exit(0);
             }
