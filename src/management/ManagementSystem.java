@@ -77,8 +77,8 @@ public class ManagementSystem {
                     System.out.println("지울거 이름");
                     String removeTitle = sc.next();
                     management.removeTodo(removeTitle);
-                    System.out.println(removeTitle + "이 삭제됐습니다.");
-                    break;   // 일정 이름 틀렸을 때
+                    break;
+
                 case 6:
                     System.out.println("프로그램 종료");
                     System.exit(0);
