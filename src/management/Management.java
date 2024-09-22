@@ -7,17 +7,39 @@ import java.util.ArrayList;
 public class Management {
     ArrayList<Member> family;
     ArrayList<Todo> todoList;
+    ArrayList<Member> historyMember;
     ArrayList<Todo> history;
+
 
 
     Management() {
         todoList = new ArrayList<>();
         family = new ArrayList<>();
+        historyMember = new ArrayList<>();
         history = new ArrayList<>();
+
     }
 
     void addMember(Member member) {
         this.family.add(member);
+    }
+
+    void changedName(String name, String changedName) {
+        boolean found = false;
+        for (Member member : family) {
+            if (member.getName().equals(name)) {
+                historyMember.add(member);
+                member.setName(changedName);
+                member.setUpdatedAt(LocalDateTime.now());
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("없는 가족");
+        } else {
+            System.out.println("이름이 " + name + "에서 " + changedName + "으로 변경됨");
+        }
     }
 
     void addTodo(Todo todo) {
