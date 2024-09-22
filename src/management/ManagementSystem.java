@@ -11,11 +11,12 @@ public class ManagementSystem {
 
         while (true) {
             System.out.println("1. 가족 구성원 추가");
-            System.out.println("2. 일정 추가");
-            System.out.println("3. 일정 조회");
-            System.out.println("4. 일정 완료");
-            System.out.println("5. 일정 삭제");
-            System.out.println("6. 프로그램 종료");
+            System.out.println("1. 가족 구성원 조회");
+            System.out.println("3. 일정 추가");
+            System.out.println("4. 일정 조회");
+            System.out.println("5. 일정 완료");
+            System.out.println("6. 일정 삭제");
+            System.out.println("7. 프로그램 종료");
             int choice = sc.nextInt();
             sc.nextLine();
 
@@ -34,6 +35,12 @@ public class ManagementSystem {
                     break;
 
                 case 2:
+                    System.out.println("가족 구성원 목록 조회");
+                    management.printFamily();
+                    break;
+
+
+                case 3:
                     System.out.println("새로운 일정 추가");
                     System.out.println("일정 이름을 입력하세요");
                     String title = sc.next();
@@ -47,13 +54,14 @@ public class ManagementSystem {
                     management.todoList.add(todo);
                     break;
 
-                case 3:
+                case 4:
                     System.out.println("일정 조회 기능");
                     System.out.println("1. 전체 일정 조회");
                     System.out.println("2. 개인 일정 조회");
                     int choice2 = sc.nextInt();
-                    switch(choice2) {
-                        case 1: management.printTodoList();  // 전체일정 없을시 없다고 출력
+                    switch (choice2) {
+                        case 1:
+                            management.printTodoList();  // 전체일정 없을시 없다고 출력
                             break;
                         case 2:
                             System.out.println("일정 조회할 사람을 입력");
@@ -62,19 +70,19 @@ public class ManagementSystem {
                     }
                     break;
 
-                case 4:
+                case 5:
                     System.out.println("일정 완료표기할거 이름 적어");
                     String finishTitle = sc.next();
                     management.markTodoComplete(finishTitle);
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("지울거 이름");
                     String removeTitle = sc.next();
                     management.removeTodo(removeTitle);
                     System.out.println(removeTitle + "이 삭제됐습니다.");
                     break;   // 일정 이름 틀렸을 때
-                case 6:
+                case 7:
                     System.out.println("프로그램 종료");
                     System.exit(0);
             }
