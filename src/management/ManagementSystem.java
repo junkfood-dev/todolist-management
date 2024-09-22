@@ -12,11 +12,13 @@ public class ManagementSystem {
         while (true) {
             System.out.println("1. 가족 구성원 추가");
             System.out.println("2. 가족 구성원 조회");
-            System.out.println("3. 일정 추가");
-            System.out.println("4. 일정 조회");
-            System.out.println("5. 일정 완료");
-            System.out.println("6. 일정 삭제");
-            System.out.println("7. 프로그램 종료");
+            System.out.println("3. 가족 구성원 삭제");
+            System.out.println("4. 가족 구성원 변경");
+            System.out.println("5. 일정 추가");
+            System.out.println("6. 일정 조회");
+            System.out.println("7. 일정 완료");
+            System.out.println("8. 일정 삭제");
+            System.out.println("9. 프로그램 종료");
             int choice = sc.nextInt();
             sc.nextLine();
 
@@ -46,6 +48,14 @@ public class ManagementSystem {
                     break;
 
                 case 4:
+                    System.out.println("기존 이름");
+                    name = sc.next();
+                    System.out.println("바꿀 이름");
+                    String newName = sc.next();
+                    management.changedName(name,newName);
+                    break;
+
+                case 5:
                     System.out.println("새로운 일정 추가");
                     System.out.println("일정 이름을 입력하세요");
                     String title = sc.next();
@@ -59,7 +69,7 @@ public class ManagementSystem {
                     management.todoList.add(todo);
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("일정 조회 기능");
                     System.out.println("1. 전체 일정 조회");
                     System.out.println("2. 개인 일정 조회");
@@ -80,19 +90,19 @@ public class ManagementSystem {
                     }
                     break;
 
-                case 6:
+                case 7:
                     System.out.println("일정 완료표기할거 이름 적어");
                     String finishTitle = sc.next();
                     management.markTodoComplete(finishTitle);
                     break;
 
-                case 7:
+                case 8:
                     System.out.println("지울거 이름");
                     String removeTitle = sc.next();
                     management.removeTodo(removeTitle);
                     break;
 
-                case 8:
+                case 9:
                     System.out.println("프로그램 종료");
                     System.exit(0);
                     break;
