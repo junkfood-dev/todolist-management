@@ -1,11 +1,12 @@
 package management;
 
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
+
 
 public class Management {
     ArrayList<Member> family;
     ArrayList<Todo> todoList;
+
 
     Management() {
         todoList = new ArrayList<>();
@@ -83,12 +84,36 @@ public class Management {
     }
 
     void printFamily() {
+        boolean visible = false;
         if (!family.isEmpty()) {
             for (Member member : family) {
-                System.out.println("이름 : " + member.getName() + " 역할 : " + member.getRole());
+                if (!member.getIsFlag()) {
+                    System.out.println("이름 : " + member.getName() + " 역할 : " + member.getRole());
+                    visible = true;
+                }
+            }
+        }
+        if (!visible) {
+            System.out.println("추가된 가족 구성원이 없습니다.");
+        }
+
+    }
+
+    void removeFamily(String name) {
+        boolean isFlag = false;
+        if (!family.isEmpty()) {
+            for (Member member : family) {
+                if (member.getName().equals(name)) {
+                    member.setIsFlag(true);
+                    isFlag = true;
+                    break;
+                }
+            }
+            if (isFlag) {
+                System.out.println(name + " 이 삭제되었습니다.");
             }
         } else {
-            System.out.println("추가된 가족 구성원이 없습니다.");
+            System.out.println("존재하지 않는 이름입니다.");
         }
     }
 }

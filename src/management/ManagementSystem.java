@@ -39,8 +39,13 @@ public class ManagementSystem {
                     management.printFamily();
                     break;
 
-
                 case 3:
+                    System.out.println("지울사람 이름");
+                    String removeName = sc.next();
+                    management.removeFamily(removeName);
+                    break;
+
+                case 4:
                     System.out.println("새로운 일정 추가");
                     System.out.println("일정 이름을 입력하세요");
                     String title = sc.next();
@@ -54,7 +59,7 @@ public class ManagementSystem {
                     management.todoList.add(todo);
                     break;
 
-                case 4:
+                case 5:
                     System.out.println("일정 조회 기능");
                     System.out.println("1. 전체 일정 조회");
                     System.out.println("2. 개인 일정 조회");
@@ -75,22 +80,22 @@ public class ManagementSystem {
                     }
                     break;
 
-                case 5:
+                case 6:
                     System.out.println("일정 완료표기할거 이름 적어");
                     String finishTitle = sc.next();
                     management.markTodoComplete(finishTitle);
                     break;
 
-                case 6:
+                case 7:
                     System.out.println("지울거 이름");
                     String removeTitle = sc.next();
                     management.removeTodo(removeTitle);
                     break;
 
-                case 7:
-             
+                case 8:
                     System.out.println("프로그램 종료");
                     System.exit(0);
+                    break;
             }
         }
     }
