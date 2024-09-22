@@ -52,13 +52,18 @@ public class ManagementSystem {
                     System.out.println("1. 전체 일정 조회");
                     System.out.println("2. 개인 일정 조회");
                     int choice2 = sc.nextInt();
-                    switch(choice2) {
-                        case 1: management.printTodoList();  // 전체일정 없을시 없다고 출력
+                    switch (choice2) {
+                        case 1:
+                            if (management.todoList.isEmpty()) {
+                                System.out.println("등록된 일정이 없습니다.");
+                            } else {
+                                management.printTodoList();
+                            }
                             break;
                         case 2:
                             System.out.println("일정 조회할 사람을 입력");
                             owner = sc.next();
-                            management.printTodo(owner);
+                            management.printTodo(owner); // owner?
                     }
                     break;
 
