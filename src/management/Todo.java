@@ -5,6 +5,7 @@ public class Todo {
     String date;
     String owner;
     boolean isComplete = false;
+    boolean isDelete = false;
 
     Todo(String title, String date, String owner) {
         this.title = title;
@@ -26,5 +27,11 @@ public class Todo {
     }
     String getOwner() {
         return owner;
+    }
+    public void setIsDelete(boolean delete) {
+        this.isDelete = delete;
+    }
+    boolean getIsDelete() {
+        return this.isDelete;
     }
 }

@@ -42,9 +42,11 @@ public class Management {
     // 모든 일정 확인
     void printTodoList() {
         for (Todo todo : todoList) {
-            System.out.println(todo.getOwner());
-            System.out.println(todo.getDate());
-            System.out.println(todo.getIsComplete());
+            if (!todo.getIsDelete()) {
+                System.out.println(todo.getOwner());
+                System.out.println(todo.getDate());
+                System.out.println(todo.getIsComplete());
+            }
         }
     }
 
@@ -69,7 +71,7 @@ public class Management {
 
         for (Todo todo : todoList) {
             if (todo.getTitle().equals(title)) {
-                todoList.remove(todo);
+                todo.setIsDelete(true);
                 System.out.println("할일 " + title + "를(을) list에서 삭제했습니다.");
                 find = true;
                 break;
