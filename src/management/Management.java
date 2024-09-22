@@ -66,16 +66,14 @@ public class Management {
 
     void removeTodo(String title) {
         boolean find = false;
-        try {
-            for (Todo todo : todoList) {
-                if (todo.getTitle().equals(title)) {
-                    todoList.remove(todo);
-                    System.out.println("할일 " + title + "를(을) list에서 삭제했습니다.");
-                    find = true;
-                }
-            }
-        } catch (ConcurrentModificationException e) {
 
+        for (Todo todo : todoList) {
+            if (todo.getTitle().equals(title)) {
+                todoList.remove(todo);
+                System.out.println("할일 " + title + "를(을) list에서 삭제했습니다.");
+                find = true;
+                break;
+            }
         }
         if (!find) {
             System.out.println("존재 하지 않는 " + title + "입니다.");
