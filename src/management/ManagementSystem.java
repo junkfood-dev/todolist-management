@@ -1,5 +1,6 @@
 package management;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class ManagementSystem {
@@ -18,7 +19,9 @@ public class ManagementSystem {
             System.out.println("6. 일정 조회");
             System.out.println("7. 일정 완료");
             System.out.println("8. 일정 삭제");
-            System.out.println("9. 프로그램 종료");
+            System.out.println("9. 일정 제목 수정");
+            System.out.println("0. 프로그램 종료");
+
             int choice = sc.nextInt();
             sc.nextLine();
 
@@ -64,7 +67,7 @@ public class ManagementSystem {
                     System.out.println("일정 소유주(?)를 입력하세요");
                     String owner = sc.next();
 
-                    todo = new Todo(title, date, owner);
+                    todo = new Todo(title, date, owner, LocalDateTime.now());
                     System.out.println(title + " 추가 완료");
                     management.todoList.add(todo);
                     break;
@@ -102,7 +105,16 @@ public class ManagementSystem {
                     management.removeTodo(removeTitle);
                     break;
 
+
                 case 9:
+                    System.out.println("변경할 일정 제목을 입력해주세요.");
+                    String titleName = sc.nextLine();
+                    System.out.println("바꾸실 제목명을 입력해주세요");
+                    String changeName = sc.nextLine();
+                    management.titleEdit(titleName, changeName);
+                    break;
+
+                case 0:
                     System.out.println("프로그램 종료");
                     System.exit(0);
                     break;

@@ -8,12 +8,16 @@ public class Management {
     ArrayList<Member> family;
     ArrayList<Todo> todoList;
     ArrayList<Member> historyMember;
+    ArrayList<Todo> history;
+
 
 
     Management() {
         todoList = new ArrayList<>();
         family = new ArrayList<>();
         historyMember = new ArrayList<>();
+        history = new ArrayList<>();
+
     }
 
     void addMember(Member member) {
@@ -135,6 +139,23 @@ public class Management {
             }
         } else {
             System.out.println("존재하지 않는 이름입니다.");
+        }
+    }
+
+    void titleEdit(String title, String changeTitle) {
+        boolean isFound = false;
+        for (Todo todo : todoList) {
+            if (todo.getTitle().equals(title)) {
+                Todo copiedTodo = new Todo(todo);
+                history.add(copiedTodo);
+                todo.setTitle(changeTitle);
+                todo.setUpdatedAt(LocalDateTime.now());
+                isFound = true;
+                break;
+            }
+        }
+        if (!isFound) {
+            System.out.println("찾는 일정의 제목이 없습니다.");
         }
     }
 }
